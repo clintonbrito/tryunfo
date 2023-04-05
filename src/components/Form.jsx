@@ -11,12 +11,12 @@ export default class Form extends Component {
       cardAttr3,
       cardImage,
       cardRare,
-      // cardTrunfo,
-      // hasTrunfo,
-      // isSaveButtonDisabled,
-      // onInputChange,
-      // onSaveButtonClick,
-      handleChange,
+      cardTrunfo,
+      hasTrunfo,
+      isSaveButtonDisabled,
+      onInputChange,
+      onSaveButtonClick,
+      // handleChange,
       isDisabled,
     } = this.props;
 
@@ -29,7 +29,7 @@ export default class Form extends Component {
             name="cardName"
             id="cardName"
             data-testid="name-input"
-            onChange={ handleChange }
+            onChange={ onInputChange }
             value={ cardName }
           />
         </label>
@@ -40,7 +40,7 @@ export default class Form extends Component {
             name="description"
             id="description"
             data-testid="description-input"
-            onChange={ handleChange }
+            onChange={ onInputChange }
             value={ cardDescription }
           />
         </label>
@@ -51,7 +51,7 @@ export default class Form extends Component {
             name="attr1"
             id="attr1"
             data-testid="attr1-input"
-            onChange={ handleChange }
+            onChange={ onInputChange }
             value={ cardAttr1 }
           />
         </label>
@@ -62,7 +62,7 @@ export default class Form extends Component {
             name="attr2"
             id="attr2"
             data-testid="attr2-input"
-            onChange={ handleChange }
+            onChange={ onInputChange }
             value={ cardAttr2 }
           />
         </label>
@@ -73,7 +73,7 @@ export default class Form extends Component {
             name="attr3"
             id="attr3"
             data-testid="attr3-input"
-            onChange={ handleChange }
+            onChange={ onInputChange }
             value={ cardAttr3 }
           />
         </label>
@@ -84,7 +84,7 @@ export default class Form extends Component {
             name="imageInput"
             id="imageInput"
             data-testid="image-input"
-            onChange={ handleChange }
+            onChange={ onInputChange }
             value={ cardImage }
           />
         </label>
@@ -95,7 +95,7 @@ export default class Form extends Component {
             name="rarety"
             id="rarety"
             data-testid="rare-input"
-            // onChange={ handleChange }
+            onChange={ onInputChange }
             value={ cardRare }
           >
             <option value="normal">normal</option>
@@ -110,9 +110,8 @@ export default class Form extends Component {
             name="checkboxSuperTrunfo"
             id="checkboxSuperTrunfo"
             data-testid="trunfo-input"
-            onChange={ handleChange }
-            // checked
-            // value={  }
+            onChange={ onInputChange }
+            checked={ cardTrunfo }
           />
           <label htmlFor="saveButton">
             <button
@@ -120,8 +119,8 @@ export default class Form extends Component {
               name="saveButton"
               id="saveButton"
               data-testid="save-button"
-              disabled={ isDisabled }
-              // value={ isSaveButtonDisabled }
+              disabled={ isSaveButtonDisabled }
+              onClick={ onSaveButtonClick }
             >
               Salvar
             </button>
