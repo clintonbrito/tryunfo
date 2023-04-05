@@ -12,12 +12,10 @@ export default class Form extends Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      hasTrunfo,
+      // hasTrunfo,
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
-      // handleChange,
-      isDisabled,
     } = this.props;
 
     return (
