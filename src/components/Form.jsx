@@ -35,7 +35,7 @@ export default class Form extends Component {
           Descrição
           <input
             type="textarea"
-            name="description"
+            name="cardDescription"
             id="description"
             data-testid="description-input"
             onChange={ onInputChange }
@@ -46,7 +46,7 @@ export default class Form extends Component {
           Attr01
           <input
             type="number"
-            name="attr1"
+            name="cardAttr1"
             id="attr1"
             data-testid="attr1-input"
             onChange={ onInputChange }
@@ -57,7 +57,7 @@ export default class Form extends Component {
           Attr02
           <input
             type="number"
-            name="attr2"
+            name="cardAttr2"
             id="attr2"
             data-testid="attr2-input"
             onChange={ onInputChange }
@@ -68,7 +68,7 @@ export default class Form extends Component {
           Attr03
           <input
             type="number"
-            name="attr3"
+            name="cardAttr3"
             id="attr3"
             data-testid="attr3-input"
             onChange={ onInputChange }
@@ -79,7 +79,7 @@ export default class Form extends Component {
           Imagem
           <input
             type="text"
-            name="imageInput"
+            name="cardImage"
             id="imageInput"
             data-testid="image-input"
             onChange={ onInputChange }
@@ -90,7 +90,7 @@ export default class Form extends Component {
           Raridade
           <select
             type="select"
-            name="rarety"
+            name="cardRare"
             id="rarety"
             data-testid="rare-input"
             onChange={ onInputChange }
@@ -105,7 +105,7 @@ export default class Form extends Component {
           Super Trybe Trunfo
           <input
             type="checkbox"
-            name="checkboxSuperTrunfo"
+            name="cardTrunfo"
             id="checkboxSuperTrunfo"
             data-testid="trunfo-input"
             onChange={ onInputChange }
