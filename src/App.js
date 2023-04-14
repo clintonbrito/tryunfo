@@ -13,9 +13,11 @@ class App extends React.Component {
     cardRare: '',
     cardTrunfo: '',
     hasTrunfo: false,
-  }
+  };
 
   render() {
+    const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
+      cardImage, cardRare, cardTrunfo, hasTrunfo } = this.state;
     return (
       <div>
         <h1>Tryunfo</h1>
@@ -28,6 +30,7 @@ class App extends React.Component {
           cardImage={ cardImage }
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
+          hasTrunfo={ hasTrunfo }
         />
         <Card
           cardName={ cardName }
@@ -38,6 +41,7 @@ class App extends React.Component {
           cardImage={ cardImage }
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
+          hasTrunfo={ hasTrunfo }
         />
       </div>
     );
