@@ -32,6 +32,8 @@ export default class Card extends Component {
   }
 }
 
+// Tive ajuda do colega Chris da turma 29 na validação do cardTrunfo da linha 29
+
 Card.propTypes = {
   cardAttr1: PropTypes.string,
   cardAttr2: PropTypes.string,

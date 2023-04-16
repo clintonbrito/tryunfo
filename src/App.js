@@ -10,23 +10,72 @@ class App extends React.Component {
     cardAttr2: '',
     cardAttr3: '',
     cardImage: '',
-    cardRare: '',
-    cardTrunfo: '',
+    cardRare: 'normal',
+    // cardTrunfo: false,
     hasTrunfo: false,
+    isSaveButtonDisabled: true,
+  };
+
+  validationFields = () => {
+    const { cardName,
+      cardDescription,
+      cardImage,
+      cardRare,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardTrunfo,
+    } = this.state;
+
+    const validateCardName = cardName.trim().length > 0;
+    const validateCardDescription = cardDescription.trim().length > 0;
+    const validateCardImage = cardImage.trim().length > 0;
+    const validateCardRare = cardRare.trim().length > 0;
+    const validateCardAttrs = cardAttr1.trim().length > 0
+    && cardAttr2.trim().length > 0
+    && cardAttr3.trim().length > 0;
+
+    const maxSum = 210;
+    const minCardAttr = 0;
+    const maxCardAttr = 90;
+    const validateCardAttr1 = cardAttr1 <= maxCardAttr && cardAttr1 >= minCardAttr;
+    const validateCardAttr2 = cardAttr2 <= maxCardAttr && cardAttr2 >= minCardAttr;
+    const validateCardAttr3 = cardAttr3 <= maxCardAttr && cardAttr3 >= minCardAttr;
+    const attrSum = Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3);
+    const resultAtrrSum = attrSum <= maxSum;
+
+    // const cardTrunfoChecked = cardTrunfo;
+
+    const validateButton = validateCardName
+      && validateCardDescription
+      && validateCardImage
+      && validateCardRare
+      && validateCardAttrs
+      && resultAtrrSum
+      && validateCardAttr1
+      && validateCardAttr2
+      && validateCardAttr3;
+
+    this.setState({
+      isSaveButtonDisabled: !validateButton,
+      // cardTrunfo: cardTrunfoChecked,
+    });
   };
 
   onInputChange = (event) => {
     const { target } = event;
-    const { value, name } = target;
+    const { name } = target;
+
+    const value = target.type === 'checkbox' ? target.checked : target.value;
 
     this.setState({
       [name]: value,
-    });
+    }, this.validationFields);
   };
 
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
-      cardImage, cardRare, cardTrunfo, hasTrunfo } = this.state;
+      cardImage, cardRare, cardTrunfo, hasTrunfo, isSaveButtonDisabled } = this.state;
 
     return (
       <div>
@@ -42,6 +91,8 @@ class App extends React.Component {
           cardTrunfo={ cardTrunfo }
           hasTrunfo={ hasTrunfo }
           onInputChange={ this.onInputChange }
+          // disabled={ isSaveButtonDisabled }
+          isSaveButtonDisabled={ isSaveButtonDisabled }
         />
         <Card
           cardName={ cardName }
