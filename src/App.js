@@ -24,7 +24,7 @@ class App extends React.Component {
       cardAttr1,
       cardAttr2,
       cardAttr3,
-      cardTrunfo,
+      // cardTrunfo,
     } = this.state;
 
     const validateCardName = cardName.trim().length > 0;
