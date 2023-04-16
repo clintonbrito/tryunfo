@@ -28,7 +28,7 @@ class App extends React.Component {
       cardRare,
       cardTrunfo,
       savedCard,
-      hasTrunfo,
+      // hasTrunfo,
     } = this.state;
 
     const newCard = {
