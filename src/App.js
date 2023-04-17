@@ -42,8 +42,6 @@ class App extends React.Component {
       cardTrunfo,
     };
 
-    const validateCardTrunfo = !hasTrunfo ? true : hasTrunfo;
-
     this.setState({
       cardName: '',
       cardDescription: '',
@@ -52,7 +50,7 @@ class App extends React.Component {
       cardAttr3: 0,
       cardImage: '',
       cardRare: 'normal',
-      hasTrunfo: validateCardTrunfo,
+      hasTrunfo: !hasTrunfo ? true : hasTrunfo,
       savedCard: [...savedCard, newCard],
     });
   };
