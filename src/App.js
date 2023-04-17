@@ -11,7 +11,7 @@ class App extends React.Component {
     cardAttr3: '',
     cardImage: '',
     cardRare: 'normal',
-    // cardTrunfo: false,
+    cardTrunfo: false,
     hasTrunfo: false,
     isSaveButtonDisabled: true,
     savedCard: [],
@@ -72,9 +72,9 @@ class App extends React.Component {
     const validateCardDescription = cardDescription.trim().length > 0;
     const validateCardImage = cardImage.trim().length > 0;
     const validateCardRare = cardRare.trim().length > 0;
-    const validateCardAttrs = cardAttr1.trim().length > 0
-    && cardAttr2.trim().length > 0
-    && cardAttr3.trim().length > 0;
+    const validateCardAttrs = cardAttr1.length > 0
+    && cardAttr2.length > 0
+    && cardAttr3.length > 0;
 
     const maxSum = 210;
     const minCardAttr = 0;
