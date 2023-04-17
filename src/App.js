@@ -12,7 +12,7 @@ class App extends React.Component {
     cardImage: '',
     cardRare: 'normal',
     // cardTrunfo: false,
-    // hasTrunfo: false,
+    hasTrunfo: false,
     isSaveButtonDisabled: true,
     savedCard: [],
   };
@@ -28,7 +28,7 @@ class App extends React.Component {
       cardRare,
       cardTrunfo,
       savedCard,
-      // hasTrunfo,
+      hasTrunfo,
     } = this.state;
 
     const newCard = {
@@ -42,6 +42,8 @@ class App extends React.Component {
       cardTrunfo,
     };
 
+    const validateCardTrunfo = !hasTrunfo ? true : hasTrunfo;
+
     this.setState({
       cardName: '',
       cardDescription: '',
@@ -50,6 +52,7 @@ class App extends React.Component {
       cardAttr3: 0,
       cardImage: '',
       cardRare: 'normal',
+      hasTrunfo: validateCardTrunfo,
       savedCard: [...savedCard, newCard],
     });
   };
@@ -105,6 +108,11 @@ class App extends React.Component {
     const { name } = target;
 
     const value = target.type === 'checkbox' ? target.checked : target.value;
+    if (name === 'cardTrunfo') {
+      this.setState({
+        [name]: target.checked,
+      }, this.validationFields);
+    }
 
     this.setState({
       [name]: value,
@@ -114,7 +122,7 @@ class App extends React.Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
       cardImage, cardRare, cardTrunfo,
-      isSaveButtonDisabled, savedCard } = this.state;
+      isSaveButtonDisabled, savedCard, hasTrunfo } = this.state;
 
     const renderCards = savedCard.map((card, index) => (
       <Card
