@@ -12,7 +12,7 @@ export default class Form extends Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      // hasTrunfo,
+      hasTrunfo,
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
@@ -20,12 +20,12 @@ export default class Form extends Component {
 
     return (
       <form>
-        <label htmlFor="cardName">
+        <label htmlFor="name">
           Nome
           <input
             type="text"
             name="cardName"
-            id="cardName"
+            id="name"
             data-testid="name-input"
             onChange={ onInputChange }
             value={ cardName }
@@ -101,28 +101,31 @@ export default class Form extends Component {
             <option value="muito raro">muito raro</option>
           </select>
         </label>
-        <label htmlFor="checkboxSuperTrunfo">
-          Super Trybe Trunfo
-          <input
-            type="checkbox"
-            name="cardTrunfo"
-            id="checkboxSuperTrunfo"
-            data-testid="trunfo-input"
-            onChange={ onInputChange }
-            checked={ cardTrunfo }
-          />
-          <label htmlFor="saveButton">
-            <button
-              type="button"
-              name="saveButton"
-              id="saveButton"
-              data-testid="save-button"
-              disabled={ isSaveButtonDisabled }
-              onClick={ onSaveButtonClick }
-            >
-              Salvar
-            </button>
-          </label>
+        { hasTrunfo ? (
+          <p>Você já tem um Super Trunfo em seu baralho</p>
+        ) : (
+          <label htmlFor="checkboxSuperTrunfo">
+            Super Trybe Trunfo
+            <input
+              type="checkbox"
+              name="cardTrunfo"
+              id="checkboxSuperTrunfo"
+              data-testid="trunfo-input"
+              onChange={ onInputChange }
+              checked={ cardTrunfo }
+            />
+          </label>)}
+        <label htmlFor="saveButton">
+          <button
+            type="button"
+            name="saveButton"
+            id="saveButton"
+            data-testid="save-button"
+            disabled={ isSaveButtonDisabled }
+            onClick={ onSaveButtonClick }
+          >
+            Salvar
+          </button>
         </label>
       </form>
     );
